@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous"> -->
+    <!-- {% load static %} -->
+    <!-- <link rel="stylesheet" href="{% static 'style.css'%}"> -->
+    <title>Register</title>
+</head>
+<body>
+    <div class='main'>
+        {% if messages %}
+        <section class='messages'>
+            {% for message in messages %}
+            <h3 {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</h3>
+            {% endfor %}
+        </section>
+        {% endif %}
+    
+    <h1>Hello, Welcome to login and registration assignment!</h1>
+    <a href='dashboard/'></a>
+    <p>Please register</p>
+    <p>Already have an account? <a href='/'
+    >Sign In</a></p>
+    <form action='/register/' method='post'>
+        {% csrf_token %}
+        <section class='row'>
+            <label for='firstName'>First Name</label>
+            <input type='text' name='firstName'
+            id='firstName'>
+        </section>
+        <section class='row'>
+            <label for= 'lastName'>Last Name:</label>
+            <input type='text' name='lastName'
+            id='lastName'>
+        </section>
+        <section class='row'>
+            <label for= 'username'>Username:</label>
+            <input type='text' name='username'
+            id='username'>
+        </section>
+        <section class='row'>
+            <label for= 'email'>Email:</label>
+            <input type='email' name='email'
+            id='email'>
+        </section>
+        <section class='row'>
+            <label for= 'password'>Password:</label>
+            <input type='password' name='password'
+            id='password'>
+        </section>
+        <section class='row'>
+            <label for= 'confirm'>Confirm:</label>
+            <input type='password' name='confirm'
+            id='confirm'>
+        </section>
+        <button>Submit and Login</button>
+    </form>
+    </div>
+    <footer>
+        
+    </footer>
+</body>
+</html>

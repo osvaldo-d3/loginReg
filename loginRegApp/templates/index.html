@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous"> -->
+    {% load static %} 
+    <link rel="stylesheet" href="{% static 'style.css'%}">
+    <title>Login</title>
+</head>
+
+<body>
+    <div class='main'>
+        {% if messages %}
+        <section class='messages'>
+            {% for message in messages %}
+            <h3 {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</h3>
+            {% endfor %}
+        </section>
+        {% endif %}
+    
+    <h1>Hello login and registration assignment!</h1>
+    <a href='dashboard/'>Dashboard</a>
+    <p>Please login</p>
+    <p>Don't have and acount? <a href='signup/
+    '>Sign Up</a></p>
+    <form action='/login/' method='post'>
+        {% csrf_token %}
+        <section class='row'>
+            <label for='username'>Username</label>
+            <input name='username' id='username'
+            type='text'>
+        </section>
+        <section class='row'>
+            <label for= 'password'>Password</label>
+            <input name='password' id='password'
+            type='password'>
+        </section>
+        <button>Sign In</button>
+    </form>
+    </div>
+    <footer>
+
+    </footer>
+</body>
+</html>

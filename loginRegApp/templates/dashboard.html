@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous"> -->
+    <!-- {% load static %} -->
+    <!-- <link rel="stylesheet" href="{% static 'style.css'%}"> -->
+    <title>Dashboard</title>
+</head>
+<body>
+    <header>
+        <h1>Hello, Welcome {{user.firstName}} {{lastName}}</h1>
+        <nav>
+            <a href='/logout/'>Log Out</a>
+            <a href='/dashboard/'>Dashboard</a>
+        </nav>
+    </header>
+    <div class='main'>
+        <h1>Look at our Notes:</h1>
+        {% for note in notes %}
+        <h3>{{note.noteTitle}}</h3>
+        <p>{{note.noteText}}</p>
+        {% endfor %}
+        <h2>Add a new note:</h2>
+        <form action='/addNote/' method='post'>
+        {% csrf_token %}
+        <section>
+            <label form='noteTitle'> Note Title:
+            </label>
+            <input type='text' name='noteTitle'>
+        </section>
+        <section>
+            <label for='noteText'>Note Text:
+            </label>
+            <testarea name='noteText'></testarea>
+        </section>
+        <section style='display: none;'>
+            <label for='user'></label>
+            <input type='text' name='user' value='{
+                {user.id}}'>
+        </section>
+        <button>Add Your Note</button>
+    </form>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="{% static 'js/scripts.js' %}"></script>
+    
+    <footer>
+        
+    </footer>
+</body>
+</html>
